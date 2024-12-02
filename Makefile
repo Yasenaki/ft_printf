@@ -6,7 +6,7 @@
 #    By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:39:37 by jopires-          #+#    #+#              #
-#    Updated: 2024/11/19 17:05:11 by jopires-         ###   ########.fr        #
+#    Updated: 2024/11/28 14:38:52 by jopires-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,21 +18,21 @@ SRCS =
 OBJS = $(SRCS:.c=.o)
 NAME = libftprintf.a
 
-LIBFT_DIR = ./libft
+LIBFT_DIR = ./libft/
 LIBFT = $(LIBFT_DIR)libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(libft)
-	ar rcs $(NAME) $(OBJS) libft/*.o
+	ar rcs $(NAME) $(OBJS) $(LIBFT)
 
 clean:
 	rm -f  $(OBJS)
-	make -c $(LIBFT_DIR)
+	make clean -c $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME) 
-	make -c $(LIBFT_DIR)
+	make fclean -c $(LIBFT_DIR)
 
 re: fclean all
 
