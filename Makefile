@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/29 13:39:37 by jopires-          #+#    #+#              #
-#    Updated: 2024/12/05 10:05:36 by jopires-         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 CC = cc	
 CFLAGS = -Wall -Wextra -Werror
 
@@ -23,18 +11,18 @@ LIBFT = $(LIBFT_DIR)libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(libft)
-	ar rcs $(NAME) $(OBJS) $(LIBFT)
+$(NAME): $(OBJS) $(LIBFT)
+	ar rcs $(NAME) $(OBJS) $(LIBFT_DIR)/.o
 
 clean:
 	rm -f  $(OBJS)
-	make clean -c $(LIBFT_DIR)
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME) 
-	make fclean -c $(LIBFT_DIR)
-
-re: fclean all
+	make fclean -C $(LIBFT_DIR)
 
 libft:
-	$(libft) (make) -c $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
+
+re: fclean all
