@@ -6,19 +6,19 @@
 #    By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 13:39:37 by jopires-          #+#    #+#              #
-#    Updated: 2024/11/28 14:38:52 by jopires-         ###   ########.fr        #
+#    Updated: 2024/12/05 10:05:36 by jopires-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc	
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = 
+SRCS = ft_printf_aux.c ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 NAME = libftprintf.a
 
-LIBFT_DIR = ./libft/
+LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)libft.a
 
 all: $(NAME)
@@ -37,4 +37,4 @@ fclean: clean
 re: fclean all
 
 libft:
-$(libft) (make) -c $(LIBFT_DIR)
+	$(libft) (make) -c $(LIBFT_DIR)

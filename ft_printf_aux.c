@@ -6,7 +6,7 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:47:31 by jopires-          #+#    #+#             */
-/*   Updated: 2024/12/02 20:15:38 by jopires-         ###   ########.fr       */
+/*   Updated: 2024/12/05 09:56:57 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ unsigned int	aux_plun_bs(unsigned long int nb, char *base, unsigned int out)
 	bs = ft_strlen(base);
 	if ((nb / bs) > 0)
 	{
-		out = ft_putnbr_base(nb / bs, base, out);
-		out = ft_putnbr_base(nb % bs, base, out);
+		out = aux_plun_bs(nb / bs, base, out);
+		out = aux_plun_bs(nb % bs, base, out);
 	}
 	else
 	{
@@ -39,20 +39,23 @@ int	aux_putnbr(int nb, int out)
 	{
 		out += write(1, "-2147483648", 11);
 	}
-	if (nb < 0)
-	{
-		out += write(1, '-', 1);
-		nb *= -1;
-	}
-	if (nb > 9)
-	{
-		out = aux_putnbr(nb / 10, out);
-		out = aux_putnbr(nb % 10, out);
-	}
 	else
 	{
-		c = nb + '0';
-		out += write(1, &c, 1);
+		if (nb < 0)
+		{
+			out += write(1, "-", 1);
+			nb *= -1;
+		}
+		if (nb > 9)
+		{
+			out = aux_putnbr(nb / 10, out);
+			out = aux_putnbr(nb % 10, out);
+		}
+		else
+		{
+			c = nb + '0';
+			out += write(1, &c, 1);
+		}
 	}
 	return (out);
 }
