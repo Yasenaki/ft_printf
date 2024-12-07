@@ -6,11 +6,11 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:25 by jopires-          #+#    #+#             */
-/*   Updated: 2024/12/07 18:58:02 by jopires-         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:28:02 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	main(void)
 {

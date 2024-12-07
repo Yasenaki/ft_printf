@@ -1,5 +1,5 @@
 CC = cc	
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = ft_printf_aux.c ft_printf.c
 

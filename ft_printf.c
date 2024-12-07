@@ -6,11 +6,11 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:51:46 by jopires-          #+#    #+#             */
-/*   Updated: 2024/12/07 19:02:46 by jopires-         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:39:53 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	aux_ptr(unsigned long int str)
 {
@@ -30,7 +30,7 @@ static int	aux_ptr(unsigned long int str)
 static int	aux_str(char *str)
 {
 	if (!str)
-		return (write(1, NULL, 5));
+		return (write(1, "(null)", 6));
 	else
 		return (write(1, str, ft_strlen(str)));
 }
