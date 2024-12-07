@@ -6,19 +6,19 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:51:46 by jopires-          #+#    #+#             */
-/*   Updated: 2024/12/05 10:03:32 by jopires-         ###   ########.fr       */
+/*   Updated: 2024/12/07 19:02:46 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	aux_ptr(unsigned long int str)
+static int	aux_ptr(unsigned long int str)
 {
 	int	out;
 
 	out = 0;
 	if (!str)
-		out += (write(1, NULL, 4));
+		out += (write(1, "(nil)", 5));
 	else
 	{
 		out += write (1, "0x", 2);
@@ -27,7 +27,7 @@ int	aux_ptr(unsigned long int str)
 	return (out);
 }
 
-int	aux_str(char *str)
+static int	aux_str(char *str)
 {
 	if (!str)
 		return (write(1, NULL, 5));
@@ -35,13 +35,16 @@ int	aux_str(char *str)
 		return (write(1, str, ft_strlen(str)));
 }
 
-int	aux_flag_type(int c, va_list *args)
+static int	aux_flag_type(int c, va_list *args)
 {
 	int	out;
 
 	out = 0;
 	if (c == 'c')
-		out += ft_putchar(va_arg(*args, int));
+	{
+		out += 1;
+		ft_putchar(va_arg(*args, int));
+	}
 	if (c == 's')
 		out += aux_str(va_arg (*args, char *));
 	if (c == 'p')
@@ -59,7 +62,7 @@ int	aux_flag_type(int c, va_list *args)
 	return (out);
 }
 
-int	check_f(const char *haystack, const char needle)
+static int	check_f(const char *haystack, const char needle)
 {
 	int	cnt;
 
@@ -73,7 +76,7 @@ int	check_f(const char *haystack, const char needle)
 	return (0);
 }
 
-char	ft_printf(const	char *format, ...)
+int	ft_printf(const	char *format, ...)
 {
 	int		cnt;
 	int		out;

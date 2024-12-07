@@ -7,12 +7,18 @@ OBJS = $(SRCS:.c=.o)
 NAME = libftprintf.a
 
 LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)libft.a
+LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	ar rcs $(NAME) $(OBJS) $(LIBFT_DIR)/.o
+.c.o:
+		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+
+$(NAME): $(LIBFT) $(OBJS)
+		ar rcs $(NAME) $(OBJS)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 clean:
 	rm -f  $(OBJS)
@@ -22,7 +28,7 @@ fclean: clean
 	rm -f $(NAME) 
 	make fclean -C $(LIBFT_DIR)
 
-libft:
-	$(MAKE) -C $(LIBFT_DIR)
-
 re: fclean all
+
+test: $(NAME)
+		cc $(CFLAGS) main.c $(NAME) $(LIBFT) -o ft_printf2.out 

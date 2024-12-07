@@ -6,7 +6,7 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:25 by jopires-          #+#    #+#             */
-/*   Updated: 2024/11/27 15:22:17 by jopires-         ###   ########.fr       */
+/*   Updated: 2024/12/07 18:58:02 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,18 @@
 
 int	main(void)
 {
-	char	c;
-
-	c = 'a';
-	ft_printf("%c", &c);
-	ft_printf("%s", &c);
-	ft_printf("%p", &c);
-	ft_printf("%d", &c);
-	ft_printf("%i", &c);
-	ft_printf("%u", &c);
-	ft_printf("%x", &c);
-	ft_printf("%X", &c);
-	ft_printf("%%", &c);
-
-	printf("%c", &c);
-	printf("%s", &c);
-	printf("%p", &c);
-	printf("%d", &c);
-	printf("%i", &c);
-	printf("%u", &c);
-	printf("%x", &c);
-	printf("%X", &c);
-	printf("%%", &c);
-
-	ft_printf("skask", &c);
-	printf("skask", &c);
-
-	ft_printf("", &c);
-	printf("", &c);
-
-	ft_printf("skask");
-	printf("skask");
-
-	ft_printf("%", &c);
-	printf("%", &c);
-
-	ft_printf("%");
-	printf("%");
+ char *ptr = "Pdt";
+ char *ptr1 = NULL;
+ ft_printf("OWN\n\n");
+ int own = ft_printf("INT: %i\nUNS: %u\nDEC: %d\nhex: %x\nHEX: %X\nSTR: %s\nCHR: %c\nPTR: %p\n %p\n %% % % % % % %",
+  1, 1, 1, 3000, 3000, "asas", 'a', ptr, ptr1);
+ ft_printf("\nCounter: %d\n\n\n", own);
+ printf("ORIGINAL\n\n");
+ int og = printf("INT: %i\nUNS: %u\nDEC: %d\nhex: %x\nHEX: %X\nSTR: %s\nCHR: %c\nPTR: %p\n %p\n %% % % % % % %",
+  1, 1, 1, 3000, 3000, "asas", 'a', ptr, ptr1);
+ printf("\nCounter: %d\n\n\n", og);
+ char *a = NULL;
+ ft_printf(" NULL %s NULL ", a);
+ char *b = NULL;
+ printf(" NULL %s NULL ", b);
 }
