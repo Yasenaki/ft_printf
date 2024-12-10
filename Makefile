@@ -15,6 +15,7 @@ all: $(NAME)
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(LIBFT) $(OBJS)
+		cp $(LIBFT) $(NAME)
 		ar rcs $(NAME) $(OBJS)
 
 $(LIBFT):
@@ -31,4 +32,5 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-		cc $(CFLAGS) main.c $(NAME) $(LIBFT) -o ft_printf2.out 
+		cc $(CFLAGS) main.c $(NAME) -o ft_printf2.out
+		./ft_printf2.out

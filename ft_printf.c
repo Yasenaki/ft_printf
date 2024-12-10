@@ -6,7 +6,7 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:51:46 by jopires-          #+#    #+#             */
-/*   Updated: 2024/12/07 19:39:53 by jopires-         ###   ########.fr       */
+/*   Updated: 2024/12/10 21:57:22 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	aux_ptr(unsigned long int str)
 
 	out = 0;
 	if (!str)
-		out += (write(1, "(nil)", 5));
+		out += ft_putstr_fd("(nil)", 1);
 	else
 	{
 		out += write (1, "0x", 2);
@@ -54,9 +54,9 @@ static int	aux_flag_type(int c, va_list *args)
 	if (c == 'u')
 		out += aux_putunbr(va_arg (*args, unsigned int), 0);
 	if (c == 'x')
-		out += aux_plun_bs(va_arg (*args, long int), HEX_LOW_BASE, 0);
+		out += aux_plun_bs(va_arg (*args, unsigned int), HEX_LOW_BASE, 0);
 	if (c == 'X')
-		out += aux_plun_bs(va_arg (*args, long int), HEX_UP_BASE, 0);
+		out += aux_plun_bs(va_arg (*args, unsigned int), HEX_UP_BASE, 0);
 	if (c == '%')
 		out += write (1, "%", 1);
 	return (out);
